@@ -27,25 +27,25 @@ public class Spawner : MonoBehaviour
     public IEnumerator spawnEnemyLeft(float interval, GameObject obj)
     {
         yield return new WaitForSeconds(interval);
-        GameObject newObj = Instantiate(obj, new Vector3(Random.Range(1, 10), 5, 0), Quaternion.identity, spawner.transform);
+        GameObject newObj = Instantiate(obj, new Vector3(Random.Range(1, 10), 5, -1), Quaternion.identity, spawner.transform);
         StartCoroutine(spawnEnemyLeft(interval, obj));
     }
     public IEnumerator spawnEnemyRight(float interval, GameObject obj)
     {
         yield return new WaitForSeconds(interval);
-        GameObject newObj = Instantiate(obj, new Vector3(Random.Range(-10, 0), 5, 0), Quaternion.identity, spawner.transform);
+        GameObject newObj = Instantiate(obj, new Vector3(Random.Range(-10, 0), 5, -1), Quaternion.identity, spawner.transform);
         StartCoroutine(spawnEnemyRight(interval, obj));
     }
     public IEnumerator spawnInLeftMenu(float interval, GameObject obj)
     {
         yield return new WaitForSeconds(interval);
-        GameObject newObj = Instantiate(obj, new Vector3(10, Random.Range(-10, 10), 0), Quaternion.identity, spawner.transform);
+        GameObject newObj = Instantiate(obj, new Vector3(10, Random.Range(-10, 10), (float)0.5), Quaternion.identity, spawner.transform);
         StartCoroutine(spawnInLeftMenu(interval, obj));
     }
     public IEnumerator spawnInRightMenu(float interval, GameObject obj)
     {
         yield return new WaitForSeconds(interval);
-        GameObject newObj = Instantiate(obj, new Vector3(-10, Random.Range(-10, 10), 0), Quaternion.identity, spawner.transform);
+        GameObject newObj = Instantiate(obj, new Vector3(-10, Random.Range(-10, 10), (float)0.5), Quaternion.identity, spawner.transform);
         StartCoroutine(spawnInRightMenu(interval, obj));
     }
 }
