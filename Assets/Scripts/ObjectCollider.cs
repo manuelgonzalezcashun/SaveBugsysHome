@@ -21,6 +21,9 @@ public class ObjectCollider : MonoBehaviour
         }
         if (other.tag == "Projectile")
         {
+            GameObject spl = GameObject.Find("SPLAT");
+            AudioSource splat = spl.GetComponent<AudioSource>();
+            splat.Play();
             scorePoints.Value += 1;
             objectCollision.Invoke();
         }
