@@ -7,7 +7,7 @@ public class PausingScript : MonoBehaviour
     public static bool gameIsPaused = false;
     public GameObject pauseMenuUI;
     private AudioSource playSnd;
-    public GameObject player;
+    public Canvas playerCanvas;
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Backspace))
@@ -27,13 +27,13 @@ public class PausingScript : MonoBehaviour
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         gameIsPaused = false;
-        player.SetActive(true);
+        playerCanvas.enabled = true;
     }
     void Pause()
     {
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         gameIsPaused = true;
-        player.SetActive(false);
+        playerCanvas.enabled = false;
     }
 }

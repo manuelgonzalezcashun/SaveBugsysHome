@@ -21,7 +21,7 @@ public class Spawner : MonoBehaviour
         if (SceneManager.GetActiveScene().buildIndex == 0)
         {
             StartCoroutine(spawnInLeftMenu(spawnInterval, enemyRight));
-            StartCoroutine(spawnInRightMenu(spawnInterval, enemyRight));
+            //StartCoroutine(spawnInRightMenu(spawnInterval, enemyRight));
         }
     }
     public IEnumerator spawnEnemyLeft(float interval, GameObject obj)
@@ -39,13 +39,13 @@ public class Spawner : MonoBehaviour
     public IEnumerator spawnInLeftMenu(float interval, GameObject obj)
     {
         yield return new WaitForSeconds(interval);
-        GameObject newObj = Instantiate(obj, new Vector3(10, Random.Range(-10, 10), (float)0.5), Quaternion.identity, spawner.transform);
+        GameObject newObj = Instantiate(obj, new Vector3(10, Random.Range(3, 5), (float)0.5), Quaternion.identity, spawner.transform);
         StartCoroutine(spawnInLeftMenu(interval, obj));
     }
     public IEnumerator spawnInRightMenu(float interval, GameObject obj)
     {
         yield return new WaitForSeconds(interval);
-        GameObject newObj = Instantiate(obj, new Vector3(-10, Random.Range(-10, 10), (float)0.5), Quaternion.identity, spawner.transform);
+        GameObject newObj = Instantiate(obj, new Vector3(-10, Random.Range(3, 5), (float)0.5), Quaternion.identity, spawner.transform);
         StartCoroutine(spawnInRightMenu(interval, obj));
     }
 }
