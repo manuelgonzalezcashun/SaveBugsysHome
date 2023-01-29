@@ -3,27 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ProjectileWeaponScript : MonoBehaviour
+public class MobileWeaponScriot : MonoBehaviour
 {
-    public Image RaidialTimerUI;
+   public Image RaidialTimerUI;
     private float radialTime = 1f;
     public Transform weaponProjectilePoint;
     public GameObject projectile;
-    bool fireReady = true;
+    bool fireReady = false;
+    bool shotFired = false;
     float weaponCooldown = 1f;
 
     void Update()
     {
         if (fireReady)
         {
-            if (Input.GetKeyDown(KeyCode.E))
-            {
                 ObjectCollider.isProjectile = true;
                 Shoot();
+                shotFired = true;
                 StartCoroutine(WeaponCooldown());
-            }
         }
-        else
+        if (shotFired)
         {
             radialTime -= Time.deltaTime;
             RaidialTimerUI.enabled = true;
@@ -33,10 +32,11 @@ public class ProjectileWeaponScript : MonoBehaviour
                 radialTime = weaponCooldown;
                 RaidialTimerUI.fillAmount = weaponCooldown;
                 RaidialTimerUI.enabled = false;
+                shotFired = false;
             }
         }
     }
-    void Shoot()
+    public void Shoot()
     {
         Instantiate(projectile, weaponProjectilePoint.position, weaponProjectilePoint.rotation);
     }
@@ -44,6 +44,9 @@ public class ProjectileWeaponScript : MonoBehaviour
     {
         fireReady = false;
         yield return new WaitForSeconds(weaponCooldown);
+    }
+    public void setFireReady()
+    {
         fireReady = true;
     }
 }

@@ -13,15 +13,15 @@ public class Spawner : MonoBehaviour
 
     void Start()
     {
-        if (SceneManager.GetActiveScene().buildIndex == 1)
-        {
-            StartCoroutine(spawnEnemyLeft(spawnInterval, enemyLeft));
-            StartCoroutine(spawnEnemyRight(spawnInterval, enemyRight));
-        }
         if (SceneManager.GetActiveScene().buildIndex == 0)
         {
             StartCoroutine(spawnInLeftMenu(spawnInterval, enemyRight));
             //StartCoroutine(spawnInRightMenu(spawnInterval, enemyRight));
+        }
+        else
+        {
+            StartCoroutine(spawnEnemyLeft(spawnInterval, enemyLeft));
+            StartCoroutine(spawnEnemyRight(spawnInterval, enemyRight));
         }
     }
     public IEnumerator spawnEnemyLeft(float interval, GameObject obj)

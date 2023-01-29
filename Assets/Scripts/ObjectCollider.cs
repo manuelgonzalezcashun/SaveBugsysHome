@@ -11,6 +11,7 @@ public class ObjectCollider : MonoBehaviour
     public IntegerVariableReference scorePoints;
     public IntegerVariableReference healthPoints;
     private SoundManager sm;
+    public static bool isProjectile = false;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -25,13 +26,14 @@ public class ObjectCollider : MonoBehaviour
             AudioSource splat = spl.GetComponent<AudioSource>();
             splat.Play();
             scorePoints.Value += 1;
+            isProjectile = false;
             objectCollision.Invoke();
         }
         if (other.tag == "DestroyProjectile")
         {
             objectCollision.Invoke();
         }
-        if (other.tag == "Enemy")
+        if (other.tag == "Enemy" && isProjectile == true) 
         {
             objectCollision.Invoke();
         }

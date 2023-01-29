@@ -29,7 +29,7 @@ public class PausingScript : MonoBehaviour
         gameIsPaused = false;
         playerCanvas.enabled = true;
     }
-    void Pause()
+    public void Pause()
     {
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;

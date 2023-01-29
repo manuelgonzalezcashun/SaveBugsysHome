@@ -9,13 +9,13 @@ public class GameManager : MonoBehaviour
     {
         PausingScript.gameIsPaused = false;
         Time.timeScale = 1f;
-        SceneManager.LoadScene("SaveBugsy'sHome");
+        SceneManager.LoadScene(1);
     }
     public void QuitGame()
     {
         PausingScript.gameIsPaused = false;
         Time.timeScale = 1f;
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene(0);
     }
     public void ExitGame()
     {
