@@ -21,4 +21,8 @@ public class GameManager : MonoBehaviour
     {
         Application.Quit();
     }
+    public void ChooseScene(int scene)
+    {
+        SceneManager.LoadScene(scene);
+    }
 }

@@ -7,15 +7,19 @@ public class HighScore : MonoBehaviour
 {
     public TextMeshProUGUI highScoreTag;
     public GameObject HighScorePanel;
-    public IntegerVariable highScore;
+    public IntegerVariableReference highScore;
     public IntegerVariableReference scorePoints;
+    void Start()
+    {
+        highScoreTag.text = "High Score: " + highScore.Value;
+    }
     public void Update()
     {
-        if (scorePoints.Value > highScore.value)
+        if (scorePoints.Value > highScore.Value)
         {
             HighScorePanel.SetActive(true);
-            highScore.value += 1;
-            highScoreTag.text = "High Score: " + highScore.value;
+            highScore.Value = scorePoints.Value;
+            highScoreTag.text = "High Score: " + highScore.Value;
         }
     }
 }

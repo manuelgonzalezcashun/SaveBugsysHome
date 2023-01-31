@@ -9,6 +9,7 @@ public class ObjectCollider : MonoBehaviour
     public GameObject obj;
     public UnityEvent objectCollision;
     public IntegerVariableReference scorePoints;
+    public IntegerVariableReference highScorePoints;
     public IntegerVariableReference healthPoints;
     private SoundManager sm;
     public static bool isProjectile = false;
@@ -27,13 +28,17 @@ public class ObjectCollider : MonoBehaviour
             splat.Play();
             scorePoints.Value += 1;
             isProjectile = false;
+            if (highScorePoints.Value < scorePoints.Value)
+            {
+                highScorePoints.Value = scorePoints.Value;
+            }
             objectCollision.Invoke();
         }
         if (other.tag == "DestroyProjectile")
         {
             objectCollision.Invoke();
         }
-        if (other.tag == "Enemy" && isProjectile == true) 
+        if (other.tag == "Enemy" && isProjectile == true)
         {
             objectCollision.Invoke();
         }

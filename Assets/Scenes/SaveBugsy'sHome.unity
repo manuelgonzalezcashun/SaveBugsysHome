@@ -409,6 +409,54 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &76539741
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 76539743}
+  - component: {fileID: 76539742}
+  m_Layer: 0
+  m_Name: LeaderboardController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &76539742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 76539741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fbc761f92d76d747ae1a0e6b40fa460, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highScore:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 3df87f3fc79039c46a97f0f40f2b145d, type: 2}
+--- !u!4 &76539743
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 76539741}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &82026658
 GameObject:
   m_ObjectHideFlags: 0
@@ -1737,19 +1785,7 @@ MonoBehaviour:
   obj: {fileID: 341453961}
   objectCollision:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 341453966}
-        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
-        m_MethodName: PlaySound
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   scorePoints:
     UseConstant: 0
     ConstantValue: 0
@@ -2243,7 +2279,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   highScoreTag: {fileID: 558132024}
   HighScorePanel: {fileID: 1179430522}
-  highScore: {fileID: 11400000, guid: 3df87f3fc79039c46a97f0f40f2b145d, type: 2}
+  highScore:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 3df87f3fc79039c46a97f0f40f2b145d, type: 2}
   scorePoints:
     UseConstant: 0
     ConstantValue: 0
@@ -4375,6 +4414,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f6ce4898632d2f44bf5f021c0e70f80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  leaderboard: {fileID: 76539742}
+  DeathScreen: {fileID: 636079532}
   healthTag: {fileID: 1049470881}
   healthPoints:
     UseConstant: 0
@@ -4384,7 +4425,6 @@ MonoBehaviour:
     UseConstant: 1
     ConstantValue: 5
     Variable: {fileID: 11400000, guid: 33a6b20a54756b540b34b4a20339c30a, type: 2}
-  DeathScreen: {fileID: 636079532}
 --- !u!114 &1034206976
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SaveBugsy'sHome.unity
     guid: 843419fc972c0404da4a4a13bf2ef39a
+  - enabled: 1
+    path: Assets/Scenes/LeaderboardScene.unity
+    guid: bd712a33ea69a094ba8be31ecbac95a5
   - enabled: 0
     path: Assets/Scenes/SaveBugsy'sHomeMobile.unity
     guid: e2c899ca1b02bd546bf5930fb20737c1

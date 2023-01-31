@@ -215,6 +215,10 @@ MonoBehaviour:
     UseConstant: 0
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: 9b086a0c9ba50984da0b529dd9e27886, type: 2}
+  highScorePoints:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 3df87f3fc79039c46a97f0f40f2b145d, type: 2}
   healthPoints:
     UseConstant: 0
     ConstantValue: 0
