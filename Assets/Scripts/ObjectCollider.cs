@@ -11,7 +11,6 @@ public class ObjectCollider : MonoBehaviour
     public IntegerVariableReference scorePoints;
     public IntegerVariableReference highScorePoints;
     public IntegerVariableReference healthPoints;
-    private SoundManager sm;
     public static bool isProjectile = false;
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -19,13 +18,12 @@ public class ObjectCollider : MonoBehaviour
         if (other.tag == "PlayerHouse")
         {
             healthPoints.Value -= 1;
+            FindObjectOfType<AudioManager>().Play("Damage Taken");
             objectCollision.Invoke();
         }
         if (other.tag == "Projectile")
         {
-            GameObject spl = GameObject.Find("SPLAT");
-            AudioSource splat = spl.GetComponent<AudioSource>();
-            splat.Play();
+            FindObjectOfType<AudioManager>().Play("SPLAT");
             scorePoints.Value += 1;
             isProjectile = false;
             if (highScorePoints.Value < scorePoints.Value)
