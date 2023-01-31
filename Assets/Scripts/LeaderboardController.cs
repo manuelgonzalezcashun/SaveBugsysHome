@@ -18,17 +18,25 @@ public class LeaderboardController : MonoBehaviour
     }
     public void SetPlayerName()
     {
-        LootLockerSDKManager.SetPlayerName(playerName.text, (response) =>
+        if (playerName.text.Length < 11)
         {
-            if (response.success)
+            LootLockerSDKManager.SetPlayerName(playerName.text, (response) =>
             {
-                Debug.Log("Sucessfully set player name");
-            }
-            else
-            {
-                Debug.LogError("Could not set player name" + response.Error);
-            }
-        });
+                if (response.success)
+                {
+                    Debug.Log("Sucessfully set player name");
+                }
+                else
+                {
+                    Debug.LogError("Could not set player name" + response.Error);
+                }
+
+            });
+        }
+        else
+        {
+            Debug.Log("Name is toon long. Please try again with a shorter name");
+        }
     }
 
     IEnumerator SetupRoutine()
@@ -87,7 +95,15 @@ public class LeaderboardController : MonoBehaviour
                     tempPlayerNames += members[i].rank + ". ";
                     if (members[i].player.name != "")
                     {
-                        tempPlayerNames += members[i].player.name;
+                        if (members[i].player.name.Length > 11)
+                        {
+                            string updatedName = members[i].player.name.Remove(11);
+                            tempPlayerNames += updatedName;
+                        }
+                        else
+                        {
+                            tempPlayerNames += members[i].player.name;
+                        }
                     }
                     else
                     {
