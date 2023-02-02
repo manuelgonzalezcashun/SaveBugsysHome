@@ -8,6 +8,7 @@ public class AudioManager : MonoBehaviour
     public Sounds[] sounds;
     [SerializeField] Slider volumeSlider;
     [SerializeField] Toggle muteToggle;
+    private int isToggled = 1;
 
     void Awake()
     {
@@ -55,12 +56,14 @@ public class AudioManager : MonoBehaviour
         {
             AudioListener.volume = 0;
             volumeSlider.value = 0;
+            isToggled = 0;
             Save();
         }
         else
         {
             AudioListener.volume = 1;
             volumeSlider.value = 1;
+            isToggled = 1;
             Save();
         }
     }
@@ -80,6 +83,6 @@ public class AudioManager : MonoBehaviour
     private void Save()
     {
         PlayerPrefs.SetFloat("musicVolume", volumeSlider.value);
-        PlayerPrefs.SetInt("ToggleSelected", (int)volumeSlider.value); 
+        PlayerPrefs.SetInt("ToggleSelected", isToggled); 
     }
 }
