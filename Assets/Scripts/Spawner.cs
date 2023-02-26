@@ -5,47 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class Spawner : MonoBehaviour
 {
-    public float spawnInterval = 3.5f;
-    public GameObject enemyLeft;
-    public GameObject enemyRight;
-    public GameObject spawner;
+    [SerializeField] float spawnInterval = 3.5f;
+    [SerializeField] GameObject enemy;
+    [SerializeField] GameObject spawner;
     private PausingScript pause;
 
     void Start()
     {
-        if (SceneManager.GetActiveScene().buildIndex == 0)
-        {
-            StartCoroutine(spawnInLeftMenu(spawnInterval, enemyRight));
-            //StartCoroutine(spawnInRightMenu(spawnInterval, enemyRight));
-        }
-        else
-        {
-            StartCoroutine(spawnEnemyLeft(spawnInterval, enemyLeft));
-            StartCoroutine(spawnEnemyRight(spawnInterval, enemyRight));
-        }
+        StartCoroutine(spawnEnemy(spawnInterval, enemy));
     }
-    public IEnumerator spawnEnemyLeft(float interval, GameObject obj)
+    public IEnumerator spawnEnemy(float interval, GameObject obj)
     {
         yield return new WaitForSeconds(interval);
-        GameObject newObj = Instantiate(obj, new Vector3(Random.Range(1, 10), 5, -1), Quaternion.identity, spawner.transform);
-        StartCoroutine(spawnEnemyLeft(interval, obj));
-    }
-    public IEnumerator spawnEnemyRight(float interval, GameObject obj)
-    {
-        yield return new WaitForSeconds(interval);
-        GameObject newObj = Instantiate(obj, new Vector3(Random.Range(-10, 0), 5, -1), Quaternion.identity, spawner.transform);
-        StartCoroutine(spawnEnemyRight(interval, obj));
-    }
-    public IEnumerator spawnInLeftMenu(float interval, GameObject obj)
-    {
-        yield return new WaitForSeconds(interval);
-        GameObject newObj = Instantiate(obj, new Vector3(10, Random.Range(3, 5), (float)0.5), Quaternion.identity, spawner.transform);
-        StartCoroutine(spawnInLeftMenu(interval, obj));
-    }
-    public IEnumerator spawnInRightMenu(float interval, GameObject obj)
-    {
-        yield return new WaitForSeconds(interval);
-        GameObject newObj = Instantiate(obj, new Vector3(-10, Random.Range(3, 5), (float)0.5), Quaternion.identity, spawner.transform);
-        StartCoroutine(spawnInRightMenu(interval, obj));
+        GameObject newObj = Instantiate(obj, new Vector3(Random.Range(-10, 11), 5, -1), Quaternion.identity, spawner.transform);
+        StartCoroutine(spawnEnemy(interval, obj));
     }
 }

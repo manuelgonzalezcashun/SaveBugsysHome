@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Target : MonoBehaviour
 {
@@ -9,14 +8,7 @@ public class Target : MonoBehaviour
     public float speed;
     void Start()
     {
-        if(SceneManager.GetActiveScene().buildIndex == 1)
-        {
-           target = GameObject.Find("PlayerHouse"); 
-        }
-        else if(SceneManager.GetActiveScene().buildIndex == 0)
-        {
-            target = GameObject.Find("DestroyObject1");
-        }
+        target = GameObject.Find("PlayerHouse");
     }
     void Update()
     {
