@@ -1,36 +1,26 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed;
+    public static event Action<Vector3> onPlayerMovement;
+    [SerializeField] private float speed = 5f;
+
     private Vector2 moveDir;
     private Rigidbody2D rb;
-    Animator walkAnim;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        walkAnim = GetComponent<Animator>();
     }
     void Update()
     {
-        if (PausingScript.gameIsPaused == false)
-        {
-            PlayerInputs();
-        }
+        PlayerInputs();
     }
     void FixedUpdate()
     {
         Move();
-        if (moveDir.x != 0)
-        {
-            walkAnim.SetBool("isWalking", true);
-        }
-        else
-        {
-            walkAnim.SetBool("isWalking", false);
-        }
     }
     void PlayerInputs()
     {
@@ -40,5 +30,6 @@ public class PlayerController : MonoBehaviour
     void Move()
     {
         rb.velocity = new Vector2(moveDir.x * speed, 0);
+        onPlayerMovement?.Invoke(rb.velocity);
     }
 }
