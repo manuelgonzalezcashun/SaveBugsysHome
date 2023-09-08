@@ -17,7 +17,6 @@ public class MobileWeaponScriot : MonoBehaviour
     {
         if (fireReady)
         {
-                ObjectCollider.isProjectile = true;
                 Shoot();
                 shotFired = true;
                 StartCoroutine(WeaponCooldown());

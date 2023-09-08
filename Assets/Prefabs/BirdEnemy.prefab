@@ -12,11 +12,9 @@ GameObject:
   - component: {fileID: 176801944050657357}
   - component: {fileID: 176801944050657358}
   - component: {fileID: 1040264715195250466}
-  - component: {fileID: 559964169650103043}
   - component: {fileID: 2582913662062146605}
   - component: {fileID: 1859672030941149383}
-  - component: {fileID: 8805706855956362795}
-  - component: {fileID: -7092499275525593329}
+  - component: {fileID: 8395574561072264870}
   m_Layer: 5
   m_Name: BirdEnemy
   m_TagString: Enemy
@@ -144,19 +142,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &559964169650103043
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3868944068311331894}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68133f4abb58bea49b8826c863d84e6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1.5
 --- !u!50 &2582913662062146605
 Rigidbody2D:
   serializedVersion: 4
@@ -204,7 +189,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
---- !u!114 &8805706855956362795
+--- !u!114 &8395574561072264870
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -213,46 +198,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3868944068311331894}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22af63a552a795440acc5cfe73928aca, type: 3}
+  m_Script: {fileID: 11500000, guid: c56b65e7732d3d04cb630e722bff9ac5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obj: {fileID: 3868944068311331894}
-  objectCollision:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8805706855956362795}
-        m_TargetAssemblyTypeName: ObjectCollider, Assembly-CSharp
-        m_MethodName: DestroyObject
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  scorePoints:
-    UseConstant: 0
-    ConstantValue: 0
-    Variable: {fileID: 11400000, guid: 9b086a0c9ba50984da0b529dd9e27886, type: 2}
-  highScorePoints:
-    UseConstant: 0
-    ConstantValue: 0
-    Variable: {fileID: 11400000, guid: 3df87f3fc79039c46a97f0f40f2b145d, type: 2}
-  healthPoints:
-    UseConstant: 0
-    ConstantValue: 0
-    Variable: {fileID: 11400000, guid: 192d993c8b4fbad4989667e715e1b718, type: 2}
---- !u!114 &-7092499275525593329
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3868944068311331894}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0511e5c1be7e21459e59059d52600aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  speed: 1.5

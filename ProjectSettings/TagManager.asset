@@ -4,13 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - DestroyFallen
-  - PlayerHouse
-  - Protect
   - Weapon
   - Projectile
-  - DestroyProjectile
   - Enemy
+  - Home
   layers:
   - Default
   - TransparentFX

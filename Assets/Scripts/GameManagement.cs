@@ -26,13 +26,11 @@ public class GameManagement : MonoBehaviour
     }
     public void StartGame(int index)
     {
-        PausingScript.gameIsPaused = false;
         Time.timeScale = 1f;
         StartCoroutine(LoadAsync(index));
     }
     public void QuitGame()
     {
-        PausingScript.gameIsPaused = false;
         Time.timeScale = 1f;
         StartCoroutine(LoadAsync(0));
     }

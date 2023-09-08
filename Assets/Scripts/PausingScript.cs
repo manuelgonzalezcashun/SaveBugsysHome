@@ -1,39 +1,44 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PausingScript : MonoBehaviour
 {
+    [SerializeField] private GameObject pauseMenuUI;
+    [SerializeField] private InputAction pauseInput;
     public static bool gameIsPaused = false;
-    public GameObject pauseMenuUI;
-    private AudioSource playSnd;
-    public Canvas playerCanvas;
-    void Update()
+    
+    void OnEnable()
     {
-        if (Input.GetKeyDown(KeyCode.Backspace))
-        {
-            if (gameIsPaused == true)
-            {
-                Resume();
-            }
-            else
-            {
-                Pause();
-            }
-        }
+        pauseInput.Enable();
+        pauseInput.performed += ctx => TogglePauseStates();
+    }
+    void OnDisable()
+    {
+        pauseInput.Disable();
+        pauseInput.performed -= ctx => TogglePauseStates();
     }
     public void Resume()
     {
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         gameIsPaused = false;
-        playerCanvas.enabled = true;
     }
     public void Pause()
     {
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         gameIsPaused = true;
-        playerCanvas.enabled = false;
+    }
+
+    public void TogglePauseStates()
+    {
+        if (!gameIsPaused)
+        {
+            Pause();
+        }
+        else 
+        {
+            Resume();
+        }
     }
 }

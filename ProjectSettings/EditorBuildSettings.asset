@@ -6,14 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
+    path: Assets/Scenes/Main Menu.unity
     guid: 7ed526c19dd1d0947ba0036ab5962232
   - enabled: 1
-    path: Assets/Scenes/SaveBugsy'sHome.unity
-    guid: 843419fc972c0404da4a4a13bf2ef39a
+    path: Assets/Scenes/Level 1.unity
+    guid: 39dcb8c226105954d86323375342de07
   - enabled: 1
-    path: Assets/Scenes/LeaderboardScene.unity
-    guid: bd712a33ea69a094ba8be31ecbac95a5
+    path: Assets/Scenes/Settings.unity
+    guid: 9911d8090fccb864db9fee00e07c1618
   - enabled: 0
     path: Assets/Scenes/SaveBugsy'sHomeMobile.unity
     guid: e2c899ca1b02bd546bf5930fb20737c1
